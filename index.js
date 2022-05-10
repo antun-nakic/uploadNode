@@ -16,6 +16,17 @@ const server = http.createServer((req, res) => {
         res.write(data);
         return res.end();
       });
+    } else if (path.pathname.startsWith("/uploads")) {
+      let filename = "." + path.pathname;
+      fs.readFile(filename, function (err, data) {
+        if (err) {
+          res.writeHead(404, { "Content-Type": "text/html" });
+          return res.end("404 Not Found");
+        }
+        res.writeHead(200, { "Content-Type": "plain/text" });
+        res.write(data);
+        return res.end();
+      });
     } else {
       res.write("Dobrodošao");
       res.end();
