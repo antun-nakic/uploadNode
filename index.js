@@ -29,12 +29,21 @@ const server = http.createServer((req, res) => {
         res.end(String(err));
         return;
       }
+
+      //pripremam upload file
+      let putanjaZaUpload = `./uploads/${fields.naslov}.txt`;
+      fs.writeFile(putanjaZaUpload, fields.sadrzaj, function (err) {
+        if (err) throw err;
+        console.log("Stvoren novi file");
+      });
+
+      //slažem odgovor korisniku
       res.writeHead(200, { "Content-Type": "text/html" });
       res.write(`<h1>Uspioješno si objavio file.</h1>
       <p>Unio si naslov novog filea: ${fields.naslov}</p>
       <p>Unio si sadržaj novog filea: ${fields.sadrzaj}</p>
       <hr/>
-      <a href="">Pogledaj svoj file na ovoj poveznici</a>
+      <a href="${putanjaZaUpload}">Pogledaj svoj file na ovoj poveznici</a>
       `);
       res.end();
     });
