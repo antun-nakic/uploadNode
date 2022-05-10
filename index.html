@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moj html</title>
+  </head>
+  <body>
+    <h1>dobar dan polaznici</h1>
+    <ul>
+      <li>Vježbati</li>
+      <li>trenirati</li>
+    </ul>
+    <form
+      action="./unosFilea"
+      method="POST"
+      style="
+        display: inline-block;
+        padding: 20px;
+        background-color: rgb(61, 64, 185);
+        color: white;
+      "
+    >
+      <label for="naslov">Unesite naslov filea kojeg spremate na server:</label
+      ><br />
+      <input type="text" id="naslov" name="naslov" required /><br /><br />
+      <label for="sadrzaj">Unesite sadržaj filea kjeg spremate na server</label
+      ><br />
+      <textarea id="sadrzaj" name="sadrzaj" cols="100" rows="25"></textarea
+      ><br /><br />
+      <input type="submit" value="Spremi file na server" />
+    </form>
+  </body>
+</html>
